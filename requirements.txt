@@ -4,6 +4,7 @@ scipy>=1.10
 nibabel>=5.0
 scikit-image>=0.21
 pillow>=10.0
+gunicorn
 # optional, only if you set SEGRESNET_CHECKPOINT in app.py:
 # torch
 # monai
