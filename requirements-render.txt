@@ -1,0 +1,4 @@
+# The hosted demo (Render web service) only serves the bundled cases: no case building, so no scipy, nibabel or scikit-image.
+flask>=3.0
+gunicorn>=22.0
+numpy>=1.26

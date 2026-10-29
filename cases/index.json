@@ -1,0 +1,118 @@
+{
+ "cases": [
+  {
+   "key": "BraTS-MET-00110-000",
+   "name": "BraTS-MET-00110-000",
+   "modalities": [
+    "t1ce",
+    "flair",
+    "t2",
+    "t1"
+   ],
+   "seg_source": "auto",
+   "volumes_cc": {
+    "brain": 1611.56,
+    "oedema": 26.42,
+    "core": 31.46,
+    "enhancing": 0.51,
+    "ventricles": 23.44
+   },
+   "built": true
+  },
+  {
+   "key": "BraTS2021_0638_0024",
+   "name": "BraTS2021_0638_0024",
+   "modalities": [
+    "t1ce",
+    "flair",
+    "t2",
+    "t1"
+   ],
+   "seg_source": "file",
+   "volumes_cc": {
+    "brain": 1910.95,
+    "oedema": 122.65,
+    "core": 29.02,
+    "enhancing": 7.27,
+    "ventricles": 10.23
+   },
+   "built": true
+  },
+  {
+   "key": "BraTS2021_0638_0025",
+   "name": "BraTS2021_0638_0025",
+   "modalities": [
+    "t1ce",
+    "flair",
+    "t2",
+    "t1"
+   ],
+   "seg_source": "file",
+   "volumes_cc": {
+    "brain": 1871.88,
+    "oedema": 120.2,
+    "core": 28.83,
+    "enhancing": 7.27,
+    "ventricles": 10.36
+   },
+   "built": true
+  },
+  {
+   "key": "BraTS2021_0638_0026",
+   "name": "BraTS2021_0638_0026",
+   "modalities": [
+    "t1ce",
+    "flair",
+    "t2",
+    "t1"
+   ],
+   "seg_source": "file",
+   "volumes_cc": {
+    "brain": 2005.24,
+    "oedema": 128.64,
+    "core": 30.46,
+    "enhancing": 7.5,
+    "ventricles": 12.4
+   },
+   "built": true
+  },
+  {
+   "key": "BraTS2021_0651_0032",
+   "name": "BraTS2021_0651_0032",
+   "modalities": [
+    "t1ce",
+    "flair",
+    "t2",
+    "t1"
+   ],
+   "seg_source": "file",
+   "volumes_cc": {
+    "brain": 1849.49,
+    "oedema": 3.05,
+    "core": 18.5,
+    "enhancing": 8.67,
+    "ventricles": 14.37
+   },
+   "built": true
+  },
+  {
+   "key": "BraTS2021_DU7294",
+   "name": "BraTS2021_DU7294",
+   "modalities": [
+    "t1ce",
+    "flair",
+    "t2",
+    "t1"
+   ],
+   "seg_source": "file",
+   "volumes_cc": {
+    "brain": 1180.26,
+    "oedema": 14.42,
+    "core": 8.81,
+    "enhancing": 0.01,
+    "ventricles": 20.16
+   },
+   "built": true
+  }
+ ]
+}

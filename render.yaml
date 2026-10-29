@@ -1,0 +1,47 @@
+# Render Blueprint for the CranioNav demo.
+# In Render: New > Blueprint, pick this repository, Apply. The demo link is the service's onrender.com address.
+#
+# The demo is a static site: the browser does all the work (the 3D view, the alignment, the opening, the removal), on the two
+# bundled cases in cases/. A static site has no server to start, so it opens at once (no sleeping instance, no cold start), is
+# served from Render's CDN, and has nothing that can fail at deploy time (no gunicorn, no database, no Python).
+services:
+  - type: web
+    name: cranionav-demo
+    runtime: static
+    # only what the page needs: the app, the assets, three.js and the prepared cases (not app.py, the atlas or local sessions)
+    # (it stops with a clear message if the cases folder did not reach the repository)
+    buildCommand: test -f cases/index.json || { echo "ERROR - cases/index.json is missing. Push the whole cases folder to the repository."; exit 1; }; rm -rf public && mkdir -p public && cp -r index.html assets vendor cases public/ && echo "Demo cases:" && ls public/cases
+    staticPublishPath: ./public
+    headers:
+      - path: /
+        name: Cache-Control
+        value: no-cache
+      - path: /index.html
+        name: Cache-Control
+        value: no-cache
+      - path: /vendor/*
+        name: Cache-Control
+        value: public, max-age=604800
+      - path: /assets/*
+        name: Cache-Control
+        value: public, max-age=86400
+      - path: /cases/*
+        name: Cache-Control
+        value: public, max-age=86400
+      - path: /*
+        name: X-Content-Type-Options
+        value: nosniff
+
+# Alternative: a Python web service, if you prefer one (it serves the same demo through app.py). It sleeps after 15 minutes
+# without visitors on the free plan, so the first visit after that waits about a minute. To use it, replace the service above with:
+#
+#  - type: web
+#    name: cranionav-demo
+#    runtime: python
+#    plan: free
+#    buildCommand: pip install -r requirements-render.txt
+#    startCommand: gunicorn app:app --worker-class gthread --workers 1 --threads 8 --timeout 120
+#    healthCheckPath: /healthz
+#    envVars:
+#      - key: CRANIONAV_DEMO
+#        value: "1"

@@ -1,0 +1,24 @@
+Skull model (skull_s1397.png: the PNG's RGB bytes carry the mesh data)
+
+Derived from subject s1397 of the TotalSegmentator dataset, version 2.0.1:
+  https://zenodo.org/records/10047292
+  Wasserthal J. et al. TotalSegmentator: Robust Segmentation of 104 Anatomic
+  Structures in CT Images. Radiology: Artificial Intelligence, 2023.
+  https://doi.org/10.1148/ryai.230024
+
+Licence of the source data: Creative Commons Attribution 4.0 International
+(CC BY 4.0), https://creativecommons.org/licenses/by/4.0/
+
+Changes made:
+- the bone surface was extracted from the CT around the skull segmentation,
+  smoothed and simplified into three levels of detail (about 90,000, 26,000 and 9,000
+  triangles);
+- it was shaded with ambient occlusion computed from the CT and a cavity term
+  from the surface curvature;
+- it was warped (by a skin-to-skin registration) to sit under the
+  "Infinite, 3D Head Scan" face used by CranioNav, and pushed at least 1.5 mm
+  inside that skin where it would otherwise show through (eye corners, nose);
+- in the app, its vault is further fitted to each case's estimated skull and
+  the bone is kept clear of the case's brain.
+
+SPDX-License-Identifier: CC-BY-4.0
